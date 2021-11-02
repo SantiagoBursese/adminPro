@@ -65,3 +65,8 @@ span.buttonText {
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;
 }
+
+.img-avatar {
+    height: 200px;
+    width: 200px;
+}
