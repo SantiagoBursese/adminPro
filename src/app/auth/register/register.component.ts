@@ -19,11 +19,11 @@ export class RegisterComponent  {
     private router:Router) { }
 
   public registerForm = this.fb.group({
-    nombre : ['Fernando', [Validators.required, Validators.minLength(3)]],
-    email: ['sfafsa@gmail.com',[ Validators.required, Validators.email]],
-    password: ['123456', Validators.required],
-    password2: ['123456', Validators.required],
-    terminos: [true, Validators.required],
+    nombre : ['', [Validators.required, Validators.minLength(3)]],
+    email: ['',[ Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    password2: ['', Validators.required],
+    terminos: [false, Validators.requiredTrue],
     
   },{
     validators: this.passwordsIguales('password','password2')
@@ -69,7 +69,11 @@ export class RegisterComponent  {
   }
 
   aceptaTerminos(){
-    return !this.registerForm?.get('terminos')?.value && this.formSubmitted
+    if (!this.registerForm?.get('terminos')?.value && this.formSubmitted){
+      return true
+    }else{
+      return false
+    }
   }
 
   passwordsIguales(pass1:string, pass2:string){
