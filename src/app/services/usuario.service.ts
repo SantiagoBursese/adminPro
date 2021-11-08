@@ -74,7 +74,6 @@ export class UsuarioService {
     
     return this.http.get(`${base_url}/login/renew`,this.headers).pipe(
       map((resp:any) =>{
-        console.log(resp)
         const {email,google,img ='',nombre,role,uid} = resp.usuarioDB;
         this.usuario = new Usuario(nombre,email,'',img,google,role,uid)
         localStorage.setItem('token', resp.token)
